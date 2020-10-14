@@ -1,6 +1,8 @@
 ﻿using System;
 using Imdb.Application.AuthServices;
+using Imdb.Application.MovieServices;
 using Imdb.Domain.AuthAggregate.Services;
+using Imdb.Domain.MovieAggregate.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Imdb.Application.DependencyInjection
@@ -16,6 +18,8 @@ namespace Imdb.Application.DependencyInjection
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IVoteService, VoteService>();
 
             return services;
         }

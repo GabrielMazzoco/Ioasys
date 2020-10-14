@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using System.IO;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace Imdb.Api.Configs
@@ -28,6 +30,11 @@ namespace Imdb.Api.Configs
 
                 var securityRequirement = new OpenApiSecurityRequirement { { securitySchema, new[] { "Bearer" } } };
                 x.AddSecurityRequirement(securityRequirement);
+
+                var application = AppDomain.CurrentDomain.FriendlyName;
+                var path = AppDomain.CurrentDomain.BaseDirectory;
+                var xml = Path.Combine(path, $"{application}.xml");
+                x.IncludeXmlComments(xml);
             });
         }
     }

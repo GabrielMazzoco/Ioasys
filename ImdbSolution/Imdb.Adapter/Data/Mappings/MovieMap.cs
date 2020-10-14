@@ -20,6 +20,8 @@ namespace Imdb.Adapter.Data.Mappings
 
             builder.Property(x => x.Rating).HasDefaultValue(0).IsRequired();
 
+            builder.Property(x => x.NumberOfVotes).HasDefaultValue(0).IsRequired();
+
             builder.HasMany(x => x.Actors)
                 .WithOne(x => x.Movie)
                 .HasForeignKey(x => x.IdMovie);

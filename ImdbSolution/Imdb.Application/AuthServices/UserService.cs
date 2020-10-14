@@ -4,6 +4,7 @@ using Imdb.Domain.AuthAggregate.Dtos;
 using Imdb.Domain.AuthAggregate.Entities;
 using Imdb.Domain.AuthAggregate.Repositories;
 using Imdb.Domain.AuthAggregate.Services;
+using Imdb.Domain.Properties;
 using Imdb.Domain.Shared.Exceptions;
 using Imdb.Domain.Shared.Filters;
 using Imdb.Domain.Shared.Interfaces;
@@ -58,7 +59,7 @@ namespace Imdb.Application.AuthServices
         {
             var userId = int.Parse(_httpContext.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            if (userId != userForUpdateDto.Id) throw new CoreException("Voce so pode alterar o seu proprio Usuario.");
+            if (userId != userForUpdateDto.Id) throw new CoreException(Resources.EditarSemPermissao);
 
             var user = _userRepository.GetById(userId);
 
@@ -75,7 +76,7 @@ namespace Imdb.Application.AuthServices
 
             var userInacvating = _userRepository.GetById(idToken);
 
-            if (!userInacvating.Admin) throw new CoreException("Voce nao tem permicao para inativar usuarios.");
+            if (!userInacvating.Admin) throw new CoreException(Resources.InativarSemPermissao);
 
             var userToInactivate = new User {Id = idUser, Active = false};
 

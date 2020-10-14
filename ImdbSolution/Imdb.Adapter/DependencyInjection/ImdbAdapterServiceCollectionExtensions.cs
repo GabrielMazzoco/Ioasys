@@ -3,6 +3,7 @@ using Imdb.Adapter.Data;
 using Imdb.Adapter.Data.Repositories;
 using Imdb.Adapter.Data.UoW;
 using Imdb.Domain.AuthAggregate.Repositories;
+using Imdb.Domain.MovieAggregate.Repositories;
 using Imdb.Domain.Shared.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,8 @@ namespace Imdb.Adapter.DependencyInjection
             services.AddScoped<DataContext>();
             services.AddScoped<IUnityOfWork, UnityOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IVoteRepository, VoteRepository>();
 
             services.AddDbContext<DataContext>(x =>
                 x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));

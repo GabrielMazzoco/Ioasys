@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Imdb.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Imdb.Api.Controllers.AdminController.GetUsers(Imdb.Domain.Shared.Filters.GenericFilter{Imdb.Domain.AuthAggregate.Dtos.UsersForList})">
+            <summary>
+            Endpoint listar os usuarios do Sistema permitindo paginacao
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.AdminController.RegisterAdmin(Imdb.Domain.AuthAggregate.Dtos.AdminForRegisterDto)">
+            <summary>
+            Endpoint para registrar um usuario Admin no sistema
+            </summary>
+            <response code="201"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.AdminController.UpdateAdmin(Imdb.Domain.AuthAggregate.Dtos.UserForUpdateDto)">
+            <summary>
+            Endpoint para editar um usuario Admin.
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.AdminController.InactivateAdmin(System.Int32)">
+            <summary>
+            Endpoint para que um admin possa desativar outros usuarios.
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.AuthController.LoginAdmin(Imdb.Domain.AuthAggregate.Dtos.LoginDto)">
+            <summary>
+            Endpoint para logar no sistema e obter o token
+            para posteriores interacoes no sistema
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.MovieController.RegisterMovie(Imdb.Domain.MovieAggregate.Dtos.MovieForRegisterDto)">
+            <summary>
+            Registra um filme no sistema com os atores desse filme
+            </summary>
+            <response code="201"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.MovieController.VoteRating(Imdb.Domain.MovieAggregate.Dtos.RatingMovie)">
+            <summary>
+            Endpoint para um usuario poder votar em um determinado filme.
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.MovieController.GetMovies(Imdb.Domain.Shared.Filters.MovieFilter)">
+            <summary>
+            Endpoint para listar todos os filmes permitindo paginacao e alguns filtros
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.MovieController.GetMovies(System.Int32)">
+            <summary>
+            Endpoint para buscar um filme especifico no banco e suas informacoes
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.UserController.RegisterUser(Imdb.Domain.AuthAggregate.Dtos.UserForRegisterDto)">
+            <summary>
+            Registra um usuario no Sistema
+            </summary>
+            <response code="201"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.UserController.UpdateUser(Imdb.Domain.AuthAggregate.Dtos.UserForUpdateDto)">
+            <summary>
+            Atualiza o usuario no Sistema
+            </summary>
+            <response code="200"></response>
+        </member>
+        <member name="M:Imdb.Api.Controllers.UserController.InactivateUser">
+            <summary>
+            Desativa o usuario logado.
+            </summary>
+            <response code="200"></response>
+        </member>
+    </members>
+</doc>

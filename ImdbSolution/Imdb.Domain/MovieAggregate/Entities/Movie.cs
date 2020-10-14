@@ -9,7 +9,9 @@ namespace Imdb.Domain.MovieAggregate.Entities
         public string Director { get; set; }
         public string Genre { get; set; }
         public decimal Rating { get; set; }
+        public int NumberOfVotes { get; set; }
 
         public virtual ICollection<MovieActor> Actors { get; set; }
+        public virtual ICollection<Vote> Votes { get; set; }
     }
 }

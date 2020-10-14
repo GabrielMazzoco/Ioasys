@@ -6,6 +6,7 @@ using Imdb.Domain.AuthAggregate.Dtos;
 using Imdb.Domain.AuthAggregate.Entities;
 using Imdb.Domain.AuthAggregate.Repositories;
 using Imdb.Domain.AuthAggregate.Services;
+using Imdb.Domain.Properties;
 using Imdb.Domain.Shared.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -29,9 +30,9 @@ namespace Imdb.Application.AuthServices
         {
             var user = _userRepository.GetByUsername(loginDto.Username);
 
-            if (user is null) throw new CoreException("Senha e/ou usuario nao encontrados");
+            if (user is null) throw new CoreException(Resources.LoginInvalido);
 
-            if (!BC.Verify(loginDto.Password, user.PasswordHash)) throw new CoreException("Senha e/ou usuario nao encontrados");
+            if (!BC.Verify(loginDto.Password, user.PasswordHash)) throw new CoreException(Resources.LoginInvalido);
 
             var token = GenerateToken(user);
 

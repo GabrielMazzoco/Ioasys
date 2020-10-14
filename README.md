@@ -1,3 +1,7 @@
+# Para rodar o Projeto
+- Você vai precisar mudar a ConnectionString do banco no AppSettings, e usando o Package Manager Console rodar o comando Update-Database, paara subir o banco da aplicação.
+Após isso é só rodar.
+
 # Desafio Pessoa Desenvolvedora .NET
 
 ## 🏗 O que fazer?
